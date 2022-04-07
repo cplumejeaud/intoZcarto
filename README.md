@@ -12,6 +12,8 @@ Plateforme Universitaire de Données, Poitiers, 14 avril 2022
 - [2. TD l'après-midi : 14h-17h](#2-td-laprès-midi--14h-17h)
   - [2.1. Cartographier le logement étudiant](#21-cartographier-le-logement-étudiant)
   - [2.2. Cartographier le traffic maritime en 1789](#22-cartographier-le-traffic-maritime-en-1789)
+    - [La localisation géographique des origines-destinations : ports](#la-localisation-géographique-des-origines-destinations--ports)
+    - [La matrice origine-destination](#la-matrice-origine-destination)
 
 # 1. Cours le matin - 10h-12h
 
@@ -58,63 +60,93 @@ Représentations de phénomènes localisables, qualitatifs ou quantitatifs, de t
 
 L’INFORMATION GÉOGRAPHIQUE ET SON ANALYSE
 
-1.1. Le fond de carte
-1.2. Les données attributaires
-1.3. Les sources de l’information éographique et statistique
-1.4. Discrétiser pour cartographier
+- 1.1. Le fond de carte
+- 1.2. Les données attributaires
+- 1.3. Les sources de l’information éographique et statistique
+- 1.4. Discrétiser pour cartographier
 
 LE LANGAGE CARTOGRAPHIQUE
-2.1. La conception : de l’intention à la carte
-2.2. La sémiologie graphique
-2.3. Cartographier le temps
-2.4. Cartographier pour comparer
+- 2.1. La conception : de l’intention à la carte
+- 2.2. La sémiologie graphique
+- 2.3. Cartographier le temps
+- 2.4. Cartographier pour comparer
 
 CARTOGRAPHIER DES RELATIONS
 
-3.1. Observer deux phénomènes sur une même carte
-3.2. Représenter une corrélation
-3.3. Représenter une relation entre plusieurs variables
+- 3.1. Observer deux phénomènes sur une même carte
+- 3.2. Représenter une corrélation
+- 3.3. Représenter une relation entre plusieurs variables
 
 ## 1.5. Le succédané de cours en 2H
 
-Une petite présentation disponible ici en PDF. 
+Une petite [présentation disponible ici](https://sharedocs.huma-num.fr/wl/?id=31xpJOVFphO4uMZ6Lh1kiFabiXvE1Se5) en PDF. 
 
 
 
 # 2. TD l'après-midi : 14h-17h
 
+Télécharger le contenu du répertoire : https://sharedocs.huma-num.fr/wl/?id=ht5q6bIZKgLjsqUURxvnxvbb8xDHSN9T
+
 ## 2.1. Cartographier le logement étudiant
 
 
 La base logement 2018
-https://www.insee.fr/fr/statistiques/5542867?sommaire=5395764#consulter 
+
+- https://www.insee.fr/fr/statistiques/5542867?sommaire=5395764#consulter 
 
 Logement 2013 
-https://www.insee.fr/fr/statistiques/2409491?sommaire=2409559#documentation-sommaire 
-https://www.insee.fr/fr/metadonnees/source/operation/s1251/presentation 
+
+- https://www.insee.fr/fr/statistiques/2409491?sommaire=2409559#documentation-sommaire 
+- https://www.insee.fr/fr/metadonnees/source/operation/s1251/presentation 
 
 Le fond de carte des IRIS
-https://geoservices.ign.fr/contoursiris 
+- https://geoservices.ign.fr/contoursiris 
 
 Récupérer les données : 
 - ftp://Contours_IRIS_ext:ao6Phu5ohJ4jaeji@ftp3.ign.fr/CONTOURS-IRIS_2-1__SHP__FRA_2020-01-01.7z 
-- utiliser le lien vers mon sharedoc humanum : 
-https://sharedocs.huma-num.fr/wl/?id=ht5q6bIZKgLjsqUURxvnxvbb8xDHSN9T
+- utiliser [le lien vers mon sharedoc humanum](https://sharedocs.huma-num.fr/wl/?id=ht5q6bIZKgLjsqUURxvnxvbb8xDHSN9T) 
+
 
 
 ## 2.2. Cartographier le traffic maritime en 1789
 
 
-Données en ligne sur l'API de PORTIC
-data.portic.fr
+Données en ligne sur [l'API de PORTIC](http://data.portic.fr)
+
+
+### La localisation géographique des origines-destinations : ports
+
+- Prendre les ports
+  - en format geojson : http://data.portic.fr/api/ports?format=geojson
+  - en format CSV : http://data.portic.fr/api/ports?srid=4326&format=csv
+
+Localement : Prendre ports_csv.csv
+
+On peut tout de suite établir une carte de situation très basique avec le fond des pays en 1789, et la liste de tous les ports connus via les sources de cette époque. 
+![Les ports de navigo 1789](./first_vega_map.png)
+
+Ah oui, le fond des pays, prendre localement : word1789_topojson.json
+
+Il se trouve aussi en ligne sur le [gitlab du projet](https://gitlab.huma-num.fr/portic/vizsources) dans static/maps.
+Mais il n'est pas (encore) à jour. 
+
+### La matrice origine-destination 
 
 - Prendre raw_flows
 - Filtrer pour ne retenir que certains attributs et l'année 1789 au format CSV
 
+[Copier cette URL](http://data.portic.fr/api/rawflows/?format=csv&date=1789&params=departure_uhgs_id,departure_fr,destination_uhgs_id,destination_fr,destination_partner_balance_supp_1789,destination_substate_1789_fr,destination_state_1789_fr,tonnage,outdate_fixed,commodity_purpose,commodity_purpose2,commodity_purpose3,commodity_purpose4,all_cargos,nb_cargo) dans un navigateur : un fichier CSV va être téléchargé automatiquement. Vous le sauvez dans votre espace de travail.
+
 http://data.portic.fr/api/rawflows/?format=csv&date=1789&params=departure_uhgs_id,departure_fr,destination_uhgs_id,destination_fr,destination_partner_balance_supp_1789,destination_substate_1789_fr,destination_state_1789_fr,tonnage,outdate_fixed,commodity_purpose,commodity_purpose2,commodity_purpose3,commodity_purpose4,all_cargos,nb_cargo
 
+J'ai filtré cette matrice avec un petit programme pour faire des analyses des départs depuis Dunkerque. 
+- quel traffic, tonnage, produit vers où ?
 
-- Prendre les ports
-- en format geojson
-- en format CSV
+- Des analyses préliminaires ont montré que si on exclut la pêche et la France comme destination, ainsi que l'Angleterre, les exports de Dunkerque se répartissent vers quelques pays sur des ré-exports coloniaux ou bien des alcools. Les provinces unies et l'Autriche sont des partenaires privilégiés. Ah, mais c'est quoi ces pays ?
+
+![Diagramme alluvial](./sankey_export_product_Dunkerque_1789.png)
+
+
+
+
 
