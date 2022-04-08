@@ -126,6 +126,7 @@ On peut tout de suite établir une carte de situation très basique avec le fond
 ![Les ports de navigo 1789](./first_vega_map.png)
 
 Ah oui, le fond des pays, prendre localement : word1789_topojson.json
+Ou en ligne sur le GIT : https://raw.githubusercontent.com/cplumejeaud/intoZcarto/main/python/word1789_topojson.json
 
 Il se trouve aussi en ligne sur le [gitlab du projet](https://gitlab.huma-num.fr/portic/vizsources) dans static/maps.
 Mais il n'est pas (encore) à jour. 
@@ -144,7 +145,7 @@ J'ai filtré cette matrice avec un petit programme pour faire des analyses des d
 
 - Des analyses préliminaires ont montré que si on exclut la pêche et la France comme destination, ainsi que l'Angleterre, les exports de Dunkerque se répartissent vers quelques pays sur des ré-exports coloniaux ou bien des alcools. Les provinces unies et l'Autriche sont des partenaires privilégiés. Ah, mais c'est quoi ces pays ?
 
-![Diagramme alluvial](./sankey_export_product_Dunkerque_1789.png)
+![Diagramme alluvial](./python/sankey_export_product_Dunkerque_1789.png)
 
 
 
