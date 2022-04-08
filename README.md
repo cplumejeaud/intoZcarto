@@ -87,6 +87,7 @@ Une petite [présentation disponible ici](https://sharedocs.huma-num.fr/wl/?id=3
 
 Télécharger le contenu du répertoire : https://sharedocs.huma-num.fr/wl/?id=ht5q6bIZKgLjsqUURxvnxvbb8xDHSN9T
 
+Le code associé au cours est en ligne [sur mon github](https://github.com/cplumejeaud/intoZcarto/) 
 ## 2.1. Cartographier le logement étudiant
 
 
@@ -143,11 +144,14 @@ http://data.portic.fr/api/rawflows/?format=csv&date=1789&params=departure_uhgs_i
 J'ai filtré cette matrice avec un petit programme pour faire des analyses des départs depuis Dunkerque. 
 - quel traffic, tonnage, produit vers où ?
 
-- Des analyses préliminaires ont montré que si on exclut la pêche et la France comme destination, ainsi que l'Angleterre, les exports de Dunkerque se répartissent vers quelques pays sur des ré-exports coloniaux ou bien des alcools. Les provinces unies et l'Autriche sont des partenaires privilégiés. Ah, mais c'est quoi ces pays ?
+- Des analyses préliminaires ont montré que si on exclut la pêche et la France comme destination, ainsi que l'Angleterre, les exports de Dunkerque se répartissent vers quelques pays sur des ré-exports coloniaux ou bien des alcools. Les provinces unies et l'Autriche sont des partenaires privilégiés.
 
 ![Diagramme alluvial](./python/sankey_export_product_Dunkerque_1789.png)
 
 
 
+ Ah, mais c'est quoi ces pays ?
 
+
+![carte](./python/export_Dunkerque_1789.png)
 
