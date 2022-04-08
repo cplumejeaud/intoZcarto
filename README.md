@@ -88,6 +88,8 @@ Une petite [présentation disponible ici](https://sharedocs.huma-num.fr/wl/?id=3
 Télécharger le contenu du répertoire : https://sharedocs.huma-num.fr/wl/?id=ht5q6bIZKgLjsqUURxvnxvbb8xDHSN9T
 
 Le code associé au cours est en ligne [sur mon github](https://github.com/cplumejeaud/intoZcarto/) 
+
+Un guide pour ces 3 heures de TP est [disponible ici au format PDF](https://sharedocs.huma-num.fr/wl/?id=PSTMg9NiBWf6ZFwAHtly3o6TSS2cfO2c&fmode=open). 
 ## 2.1. Cartographier le logement étudiant
 
 
